@@ -2,13 +2,14 @@
 
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace TribalMedicineRevamped
 {
     internal class IngestionOutcomeDoer_PurgeOrganism : IngestionOutcomeDoer
     {
         private readonly float purgeChance = 0.5f;
-        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested)
+        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
         {
             List<Hediff> pawnHediffs = pawn.health.hediffSet.hediffs;
             List<Hediff> affectedHediffs = new List<Hediff>();
@@ -35,6 +36,8 @@ namespace TribalMedicineRevamped
                     }
                 }
             }
+
+            pawn.jobs.StartJob(JobMaker.MakeJob(JobDefOf.Vomit), JobCondition.InterruptForced);
 
         }
     }

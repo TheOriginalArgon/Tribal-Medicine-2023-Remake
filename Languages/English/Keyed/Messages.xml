@@ -4,6 +4,7 @@
     <TM_MessageHediffCleansed>{0} got successfully cleansed of {1}!</TM_MessageHediffCleansed>
     <TM_MessageProductBotched>{0} failed while making {1}, most of the ingredients were wasted.</TM_MessageProductBotched>
     <TM_MessageRuinedInStorage>{0} has ruined away in storage.</TM_MessageRuinedInStorage>
+    <TM_BrootPoisoningCured>{PAWN} was cured Broot poisoning!</TM_BrootPoisoningCured>
 
     <TM_InspectStringRuining>Ruining in {0}</TM_InspectStringRuining>
 

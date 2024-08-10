@@ -11,7 +11,7 @@ namespace TribalMedicineRevamped
 {
     public class IngestionOutcomeDoer_CureFoodPoisoning : IngestionOutcomeDoer
     {
-        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested) // Need to add checking.
+        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
         {
             Hediff foodPoisoning = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.FoodPoisoning);
 

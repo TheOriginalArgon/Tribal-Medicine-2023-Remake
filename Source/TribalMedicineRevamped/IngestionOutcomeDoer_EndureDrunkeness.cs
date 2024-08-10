@@ -5,7 +5,7 @@ namespace TribalMedicineRevamped
 {
     public class IngestionOutcomeDoer_EndureDrunkeness : IngestionOutcomeDoer
     {
-        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested)
+        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
         {
             if (pawn.health.hediffSet.HasHediff(HediffDefOf.AlcoholHigh))
             {

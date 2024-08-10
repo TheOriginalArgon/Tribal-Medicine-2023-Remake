@@ -11,7 +11,7 @@ namespace TribalMedicineRevamped
 {
     public class IngestionOutcomeDoer_ReduceIllnessPercentage : IngestionOutcomeDoer
     {
-        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested)
+        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
         {
             Hediff hediffToAffect = pawn.health.hediffSet.hediffs.Find(h => h.def.HasComp(typeof(HediffComp_Immunizable)));
 
