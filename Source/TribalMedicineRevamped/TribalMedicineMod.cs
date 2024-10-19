@@ -38,8 +38,8 @@ namespace TribalMedicineRevamped
 
     public class TribalMedicine_ModSettings : ModSettings
     {
-        public bool EnableAltNames;
-        public bool EnableBrootPoisoning;
+        public bool EnableAltNames = false;
+        public bool EnableBrootPoisoning = true;
 
         public override void ExposeData()
         {
