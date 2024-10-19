@@ -39,10 +39,12 @@ namespace TribalMedicineRevamped
     public class TribalMedicine_ModSettings : ModSettings
     {
         public bool EnableAltNames;
+        public bool EnableBrootPoisoning;
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref EnableAltNames, "TM_Setting_EnableAltNames");
+            Scribe_Values.Look(ref EnableBrootPoisoning, "TM_Setting_EnableBrootPoisoning");
             base.ExposeData();
         }
 
@@ -55,6 +57,7 @@ namespace TribalMedicineRevamped
             Text.Anchor = TextAnchor.UpperLeft;
             listCanvas.Gap(12f);
             listCanvas.CheckboxLabeled("TM_SettingText_EnableAltNames".Translate(), ref EnableAltNames, 12f);
+            listCanvas.CheckboxLabeled("TM_SettingText_EnableBrootPoisoning".Translate(), ref EnableBrootPoisoning, 12f);
             listCanvas.End();
 
             TribalMedicineMod.settings.Write();

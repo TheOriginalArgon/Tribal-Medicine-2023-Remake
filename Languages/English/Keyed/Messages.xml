@@ -11,6 +11,7 @@
     <TM_SettingsCategory>Tribal Medicine</TM_SettingsCategory>
     <TM_Setting_EnableAltNames>Alternative tea names enabled</TM_Setting_EnableAltNames>
     <TM_SettingText_EnableAltNames>Alternative tea names</TM_SettingText_EnableAltNames>
+    <TM_SettingText_EnableBrootPoisoning>Enable broot poisoning</TM_SettingText_EnableBrootPoisoning>
 
 
 </LanguageData>
