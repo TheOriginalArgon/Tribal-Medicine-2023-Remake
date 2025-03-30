@@ -1,7 +1,10 @@
 <Patch>
 
     <!-- Patch medicine stats so that they are affected by item quality -->
-    <Operation Class="PatchOperationSequence">
+
+    <!-- C# code takes the value of the stat at def level, not thing, so this is essentially useless. -->
+
+    <!-- <Operation Class="PatchOperationSequence">
         <success>Always</success>
         <operations>
             <li Class="PatchOperationAdd">
@@ -37,6 +40,6 @@
                 </value>
             </li>
         </operations>
-    </Operation>
+    </Operation> -->
     
 </Patch>

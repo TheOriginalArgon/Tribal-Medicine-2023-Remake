@@ -1,9 +1,63 @@
 <Defs>
 
+    <!-- SPECIAL RECIPE -->
+    <RecipeDef>
+        <defName>TM_Make_TribalMedicine</defName>
+        <label>make tribal medicine</label>
+        <description>Make tribal medicine.</description>
+        <jobString>Making tribal medicine.</jobString>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_Machining</soundWorking>
+        <workAmount>600</workAmount>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>FueledStove</li>
+            <li>ElectricStove</li>
+        </recipeUsers>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineHerbal</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>TM_RedPetals</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MedicineHerbal</li>
+                <li>TM_RedPetals</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <workSkill>Medicine</workSkill>
+        <displayPriority>0</displayPriority>
+        <modExtensions>
+            <li Class="ArgonicCore.ModExtensions.RecipeDefExtension_QualityProduct">
+                <qualityProducts>
+                    <li>TM_MedicineTribal_awful</li>
+                    <li>TM_MedicineTribal_poor</li>
+                    <li>TM_MedicineTribal</li>
+                    <li>TM_MedicineTribal_good</li>
+                    <li>TM_MedicineTribal_excellent</li>
+                    <li>TM_MedicineTribal_masterwork</li>
+                    <li>TM_MedicineTribal_legendary</li>
+                </qualityProducts>
+            </li>
+        </modExtensions>
+        <researchPrerequisite>TM_AncientTribalMedicine</researchPrerequisite>
+    </RecipeDef>
+
     <!-- Tribal Medicine -->
-    <ThingDef ParentName="MedicineBase">
-        <defName>TM_MedicineTribal</defName>
-        <label>tribal medicine</label>
+    <ThingDef ParentName="MedicineBase" Abstract="True" Name="TM_MedicineTribalBase">
         <description>An improved herbal medicine made of dried healroot and red petals, which both improves the quality of the product and helps preserve it.</description>
         <possessionCount>2</possessionCount>
         <graphicData>
@@ -16,36 +70,79 @@
             <MarketValue>10</MarketValue>
             <Mass>0.35</Mass>
             <Flammability>1.3</Flammability>
-            <MedicalPotency>0.60</MedicalPotency>
-            <MedicalQualityMax>0.70</MedicalQualityMax>
-            <DeteriorationRate>6</DeteriorationRate>
             <WorkToMake>550</WorkToMake>
         </statBases>
-        <costList>
-            <MedicineHerbal>1</MedicineHerbal>
-            <TM_RedPetals>10</TM_RedPetals>
-        </costList>
-        <recipeMaker>
-            <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
-            <workSkill>Medicine</workSkill>
-            <recipeUsers>
-              <li>Campfire</li>
-              <li>FueledStove</li>
-              <li>ElectricStove</li>
-            </recipeUsers>
-            <researchPrerequisite>TM_AncientTribalMedicine</researchPrerequisite> <!-- TODO: Add corresponding research project -->
-            <skillRequirements>
-              <Medicine>4</Medicine>
-              <Intellectual>4</Intellectual>
-            </skillRequirements>
-            <bulkRecipeCount>4</bulkRecipeCount>
-          </recipeMaker>
-        <comps>
-            <li>
-                <compClass>CompQuality</compClass>
-            </li>
-        </comps>
         <allowedArchonexusCount>20</allowedArchonexusCount>
+    </ThingDef>
+
+    <ThingDef ParentName="TM_MedicineTribalBase">
+        <defName>TM_MedicineTribal_awful</defName>
+        <label>tribal medicine (awful)</label>
+        <statBases>
+            <MedicalPotency>0.20</MedicalPotency>
+            <MedicalQualityMax>0.30</MedicalQualityMax>
+            <DeteriorationRate>6</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="TM_MedicineTribalBase">
+        <defName>TM_MedicineTribal_poor</defName>
+        <label>tribal medicine (poor)</label>
+        <statBases>
+            <MedicalPotency>0.30</MedicalPotency>
+            <MedicalQualityMax>0.40</MedicalQualityMax>
+            <DeteriorationRate>6</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="TM_MedicineTribalBase">
+        <defName>TM_MedicineTribal</defName>
+        <label>tribal medicine (normal)</label>
+        <statBases>
+            <MedicalPotency>0.70</MedicalPotency>
+            <MedicalQualityMax>0.80</MedicalQualityMax>
+            <DeteriorationRate>6</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="TM_MedicineTribalBase">
+        <defName>TM_MedicineTribal_good</defName>
+        <label>tribal medicine (good)</label>
+        <statBases>
+            <MedicalPotency>0.80</MedicalPotency>
+            <MedicalQualityMax>0.90</MedicalQualityMax>
+            <DeteriorationRate>6</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="TM_MedicineTribalBase">
+        <defName>TM_MedicineTribal_excellent</defName>
+        <label>tribal medicine (excellent)</label>
+        <statBases>
+            <MedicalPotency>1.00</MedicalPotency>
+            <MedicalQualityMax>1.10</MedicalQualityMax>
+            <DeteriorationRate>6</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="TM_MedicineTribalBase">
+        <defName>TM_MedicineTribal_masterwork</defName>
+        <label>tribal medicine (masterwork)</label>
+        <statBases>
+            <MedicalPotency>1.20</MedicalPotency>
+            <MedicalQualityMax>1.10</MedicalQualityMax>
+            <DeteriorationRate>6</DeteriorationRate>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="TM_MedicineTribalBase">
+        <defName>TM_MedicineTribal_legendary</defName>
+        <label>tribal medicine (legendary)</label>
+        <statBases>
+            <MedicalPotency>1.40</MedicalPotency>
+            <MedicalQualityMax>1.20</MedicalQualityMax>
+            <DeteriorationRate>6</DeteriorationRate>
+        </statBases>
     </ThingDef>
 
 </Defs>
